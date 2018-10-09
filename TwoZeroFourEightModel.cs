@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace twozerofoureight
 {
-    class TwoZeroFourEightModel : Model
+    public class TwoZeroFourEightModel : Model
     {
         protected int boardSize; // default is 4
         protected int[,] board;
         protected Random rand;
+        
 
         public TwoZeroFourEightModel() : this(4)
         {
@@ -83,6 +84,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score += buffer[j - 1];
                     }
                 }
                 // shift left again
@@ -109,7 +111,7 @@ namespace twozerofoureight
         {
             int[] buffer;
             int pos;
-
+           
             int[] range = Enumerable.Range(0, boardSize).ToArray();
             foreach (int i in range)
             {
@@ -135,6 +137,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score += buffer[j - 1];
                     }
                 }
                 // shift left again
@@ -189,6 +192,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score += buffer[j - 1];
                     }
                 }
                 // shift left again
@@ -240,6 +244,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score += buffer[j - 1];
                     }
                 }
                 // shift left again

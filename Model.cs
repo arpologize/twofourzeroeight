@@ -10,7 +10,7 @@ namespace twozerofoureight
     public class Model
     {
         protected ArrayList oList;
-
+        protected int score = 0;
         public Model()
         {
             oList = new ArrayList();
@@ -22,7 +22,10 @@ namespace twozerofoureight
                 m.Notify(this);
             }
         }
-
+        public int Showscore()
+        {
+            return score;
+        }
         public void AttachObserver(View m)
         {
             oList.Add(m);

@@ -247,7 +247,8 @@
             this.scoredisplay.Name = "scoredisplay";
             this.scoredisplay.Size = new System.Drawing.Size(262, 56);
             this.scoredisplay.TabIndex = 21;
-            this.scoredisplay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.scoredisplay.Text = "0";
+            this.scoredisplay.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // TwoZeroFourEightView
             // 

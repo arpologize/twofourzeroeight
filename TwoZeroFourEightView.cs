@@ -32,6 +32,7 @@ namespace twozerofoureight
 
         private void UpdateTile(Label l, int i)
         {
+            scoredisplay.Text = (model.Showscore()).ToString();
             if (i != 0)
             {
                 l.Text = Convert.ToString(i);
@@ -78,26 +79,32 @@ namespace twozerofoureight
         }
 
         
+        
        
         private void btnUp_Click(object sender,KeyEventArgs b)
         {
-            if (b.KeyCode == Keys.W)
+            
+            
+            if (b.KeyCode == Keys.Up)
             {
                 controller.ActionPerformed(TwoZeroFourEightController.UP);
-                scoredisplay.Text =           
+                
             }
-            else if (b.KeyCode == Keys.A)
+            else if (b.KeyCode == Keys.Left)
             {
                 controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+                
             }
-            else if (b.KeyCode == Keys.D)
+            else if (b.KeyCode == Keys.Right)
             {
                 controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+                
 
             }
-            else if (b.KeyCode == Keys.S)
+            else if (b.KeyCode == Keys.Down)
             {
                 controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+              
             }
 
         }
