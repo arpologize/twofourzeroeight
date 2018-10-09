@@ -77,25 +77,32 @@ namespace twozerofoureight
             UpdateTile(lbl33,board[3, 3]);
         }
 
-        private void btnLeft_Click(object sender, EventArgs e)
+        
+       
+        private void btnUp_Click(object sender,KeyEventArgs b)
         {
-            controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+            if (b.KeyCode == Keys.W)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+                scoredisplay.Text =           
+            }
+            else if (b.KeyCode == Keys.A)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+            }
+            else if (b.KeyCode == Keys.D)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+
+            }
+            else if (b.KeyCode == Keys.S)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+            }
+
         }
 
-        private void btnRight_Click(object sender, EventArgs e)
-        {
-            controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
-        }
-
-        private void btnUp_Click(object sender, EventArgs e)
-        {
-            controller.ActionPerformed(TwoZeroFourEightController.UP);
-        }
-
-        private void btnDown_Click(object sender, EventArgs e)
-        {
-            controller.ActionPerformed(TwoZeroFourEightController.DOWN);
-        }
-
+        
+        
     }
 }
