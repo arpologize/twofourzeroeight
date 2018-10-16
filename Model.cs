@@ -11,6 +11,7 @@ namespace twozerofoureight
     {
         protected ArrayList oList;
         protected int score = 0;
+        protected bool Gameover = false;
         public Model()
         {
             oList = new ArrayList();
@@ -25,6 +26,12 @@ namespace twozerofoureight
         public int Showscore()
         {
             return score;
+        }
+        public bool checkgameover()
+        {
+
+            return Gameover;
+            
         }
         public void AttachObserver(View m)
         {

@@ -12,6 +12,7 @@ namespace twozerofoureight
         protected int[,] board;
         protected Random rand;
         
+        
 
         public TwoZeroFourEightModel() : this(4)
         {
@@ -22,7 +23,45 @@ namespace twozerofoureight
         {
             return board;
         }
+        public bool checkfull()
+        {
+            for(int i = 0; i <= 3; i++)
+            {
+                for(int j = 0; j <= 3; j++)
+                {
+                    if (board[i,j]==0)
+                    {
+                        return false;
+                    }
+                    
 
+                }
+            }
+            return true;
+        }
+        public bool move()
+        {
+            for(int i = 0; i <= 3; i++)
+            {
+                for (int j = 0; j <= 3; j++)
+                {
+                    try
+                    {
+                        if (board[i, j] == board[i, j + 1]|| board[i, j] == board[i+1, j]|| board[i, j] == board[i, j-1] || board[i, j] == board[i-1, j])
+                        {
+                            return true;
+                            
+                        }
+
+                        
+
+                    }
+                    catch (Exception) { };
+                }
+            }
+            return false;
+            
+        }
         public TwoZeroFourEightModel(int size)
         {
             boardSize = size;
@@ -40,16 +79,31 @@ namespace twozerofoureight
 
         private int[,] Random(int[,] input)
         {
-            while (true)
+            
+            while(!checkfull())
             {
                 int x = rand.Next(boardSize);
                 int y = rand.Next(boardSize);
+                
                 if (board[x, y] == 0)
                 {
                     board[x, y] = 2;
                     break;
                 }
+                
             }
+            if (checkfull())
+            {
+                if (move())
+                {
+                    Gameover = false;
+                }
+                else
+                {
+                    Gameover = true;
+                }
+            }
+
             return input;
         }
 
@@ -63,7 +117,7 @@ namespace twozerofoureight
             foreach (int i in rangeX)
             {
                 pos = 0;
-                buffer = new int[4];
+                buffer = new int[boardSize];
                 foreach (int k in rangeX)
                 {
                     buffer[k] = 0;
@@ -85,7 +139,10 @@ namespace twozerofoureight
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
                         score += buffer[j - 1];
+                        
                     }
+                   
+                    
                 }
                 // shift left again
                 pos = 3;
@@ -102,6 +159,7 @@ namespace twozerofoureight
                 {
                     board[k, i] = 0;
                 }
+                
             }
             board = Random(board);
             NotifyAll();
@@ -116,7 +174,7 @@ namespace twozerofoureight
             foreach (int i in range)
             {
                 pos = 0;
-                buffer = new int[4];
+                buffer = new int[boardSize];
                 foreach (int k in range)
                 {
                     buffer[k] = 0;
@@ -138,6 +196,7 @@ namespace twozerofoureight
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
                         score += buffer[j - 1];
+                        
                     }
                 }
                 // shift left again
@@ -171,7 +230,7 @@ namespace twozerofoureight
             foreach (int i in rangeY)
             {
                 pos = 0;
-                buffer = new int[4];
+                buffer = new int[boardSize];
                 foreach (int k in rangeY)
                 {
                     buffer[k] = 0;
@@ -193,6 +252,7 @@ namespace twozerofoureight
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
                         score += buffer[j - 1];
+                        
                     }
                 }
                 // shift left again
@@ -245,6 +305,7 @@ namespace twozerofoureight
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
                         score += buffer[j - 1];
+                        
                     }
                 }
                 // shift left again

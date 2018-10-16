@@ -83,11 +83,16 @@ namespace twozerofoureight
        
         private void btnUp_Click(object sender,KeyEventArgs b)
         {
-            
-            
+
+            if (model.checkgameover() == true)
+            {
+                MessageBox.Show("Game Over", "", MessageBoxButtons.OK);
+                
+            }
             if (b.KeyCode == Keys.Up)
             {
                 controller.ActionPerformed(TwoZeroFourEightController.UP);
+                
                 
             }
             else if (b.KeyCode == Keys.Left)
@@ -99,17 +104,19 @@ namespace twozerofoureight
             {
                 controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
                 
+                
 
             }
             else if (b.KeyCode == Keys.Down)
             {
                 controller.ActionPerformed(TwoZeroFourEightController.DOWN);
-              
+                
+                
             }
 
         }
 
-        
+       
         
     }
 }
